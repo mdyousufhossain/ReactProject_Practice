@@ -1,5 +1,5 @@
-import Home from "./Home";
-import CreatePost from "./CreatePost";
+import Home from "./page/Home";
+import CreatePost from "./page/CreatePost";
 
 export {
     Home as HomePage,
