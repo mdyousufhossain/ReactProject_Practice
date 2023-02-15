@@ -12,7 +12,11 @@ const RenderCards =  ({data,title}) => {
   )
 }
 
+/* 
+  Rendering : fetching from server
+  method :  micicng the fetcing once then using localCach method  
 
+*/
 
 const Home = () => {
   const [loading , setLoading ] = useState(false)
