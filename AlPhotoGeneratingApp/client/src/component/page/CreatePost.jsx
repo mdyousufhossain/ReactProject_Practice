@@ -24,9 +24,11 @@ const CreatePost = () => {
     return "yeah"
   }
   const handleChange = (e) => {
-    return "yeah"
+    setForm({...form,[e.target.name]:e.target.value})
   }
  const handleSurpriseMe = () =>{
+  const randomPrompt = getRandomPrompt(form.prompt);
+  setForm({...form, prompt:randomPrompt})
 
  }
   return (
@@ -53,7 +55,7 @@ const CreatePost = () => {
           value={form.prompt}
           handleChange={handleChange}
           isSurpriseMe
-          hahandleSurpriseMe={handleSurpriseMe}
+          handleSurpriseMe={handleSurpriseMe}
           />
           <div className='relative bg-gray-50 border-gray-300 text-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
             {form.photo ? (
@@ -83,7 +85,7 @@ const CreatePost = () => {
           <p> Create the image but never share with other's cause it dosnt even matter</p>
           <button
           type='submit'
-          className='mt-3 text-white bg-[#6469ff]
+          className='mt-3 text-white bg-[#484eee]
           font-medium rounded-md text-sm w-full 
           sm-w-auto
           px-5 py-2.5 text-center
