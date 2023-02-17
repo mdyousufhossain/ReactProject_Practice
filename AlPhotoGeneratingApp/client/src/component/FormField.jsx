@@ -4,14 +4,14 @@ const FormField = ({labelName,type,name,placeholder,value,handleChange,isSurpris
   return (
     <div>
       <div className='flex items-center gap-2 mb-2'>
-        <label htmlFor={name} className='block text-sm font-medium text-gray-900'>
+        <label htmlFor={name} className='block text-sm font-medium text-gray-900 dark:text-slate-100'>
           {labelName}
         </label>
         {isSurpriseMe && (
           <button
           type='button'
           onClick={handleSurpriseMe}
-          className='font-semibold text-xs bg-[#ececf1] py-1 px-2 rounded-[5x] text-black'
+          className='font-semibold text-xs bg-[#ececf1] dark:bg-slate-800 py-1 px-2 rounded-[5x] text-black dark:text-slate-100'
           >
               Surprise me 
           </button>
@@ -25,7 +25,7 @@ const FormField = ({labelName,type,name,placeholder,value,handleChange,isSurpris
         value={value}
         onChange={handleChange}
         required
-        className='bg-gray-50 border-gray-300 text-gray-900
+        className='bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-800 text-gray-900  dark:text-gray-200
         text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'
       
       />
