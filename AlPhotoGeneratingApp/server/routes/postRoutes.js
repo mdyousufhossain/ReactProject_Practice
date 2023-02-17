@@ -13,6 +13,22 @@ cloudinary.config({
     api_key : process.env.ClOULDINARY_API_KEY,
     api_secret : process.env.ClOULDINARY_API_SECRET,
 })
+
+// getting Post 
+
+router.route('/').get(async(req,res) => {
+    try {
+        const posts = await Post.find({});
+
+        res.status(200).json({success:true , data:posts})
+    } catch (error) {
+        res.status(500).json({success:false , message:error})
+        
+    }
+})
+
+
+
 router.route('/').get(async(req,res) => {
    try { 
     const { name , prompt , photo } = req.body

@@ -42,9 +42,34 @@ const CreatePost = () => {
     }
   }
 
-  const handleSubmit = () => {
-    return "yeah"
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // checcking if the form if data exist
+    if(form.prompt && form.photo){
+      setLoading(true);
+      // fetcing the post from the other post 
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/post',{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json',
+          },
+          body: JSON.stringify(form)
+        })
+
+        await response.json();
+        navigate('/');
+      } catch (error) {
+        alert(error)
+        
+      } finally{
+         setLoading(false)
+      }
+    } else {
+      alert("Add a prompt dummy or else we cant generate own our own :/")
+    }
   }
+
   const handleChange = (e) => {
     setForm({...form,[e.target.name]:e.target.value})
   }
@@ -100,7 +125,7 @@ const CreatePost = () => {
           onClick={generateImage}
           className={'text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'}
           >
-              {generateImage ? 'generating..': 'genrated'}
+              {generateImage ? 'generate': 'generating'}
           </button>
         </div>
         <div className='mt-10'>
